@@ -1,9 +1,7 @@
 import logging
 import time
-from functools import lru_cache
 
 LOG_FOLDER = "logs"
-
 
 def retry(func):
     def wrapper(*args, **kwargs):
@@ -19,19 +17,6 @@ def retry(func):
         return None
     return wrapper
 
+# def get_data_from_database(database_manager, query_type):
+#     return database_manager.fetch_data(query_type)
 
-@lru_cache(maxsize=None)
-def get_data_from_database_cached(database_manager, query_type):
-    cache = database_manager.load_cache()
-    key = (database_manager.database_endpoint, database_manager.database_port, database_manager.database_user,
-           database_manager.database_password, database_manager.database_name, database_manager.table_name, query_type)
-    if key in cache:
-        return cache[key]
-
-    rows = database_manager.fetch_data(query_type)
-
-    # Update cache
-    cache[key] = rows
-    database_manager.save_cache(cache)
-
-    return rows

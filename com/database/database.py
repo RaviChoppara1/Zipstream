@@ -1,13 +1,5 @@
 import mysql.connector
 import logging
-import os
-import pickle
-import time
-import boto3
-import botocore
-
-CACHE_FILE = "cache.pickle"
-CACHE_EXPIRY_SECONDS = 7 * 24 * 60 * 60  # 7 days in seconds
 
 class DatabaseManager:
     def __init__(self, database_endpoint, database_port, database_user, database_password, database_name, table_name):
@@ -43,16 +35,21 @@ class DatabaseManager:
 
             if query_type == 'ET':
                 cursor.execute(
-                    f'SELECT profitCameraIp, profitCameraPort, username, password FROM {self.table_name} where TimeZone like "E%" and ProdFullName = "AXIS M2025-LE Bullet Camera"')
+                    f"SELECT uniqueCameraId, profitCameraIp, profitCameraPort, username, password FROM {self.table_name} WHERE TimeZone LIKE 'E%'")
             elif query_type == 'CT':
                 cursor.execute(
-                    f'SELECT profitCameraIp, profitCameraPort, username, password FROM {self.table_name} where TimeZone like "C%" and ProdFullName = "AXIS M2025-LE Bullet Camera"')
+                    f"SELECT uniqueCameraId, profitCameraIp, profitCameraPort, username, password FROM {self.table_name} WHERE TimeZone LIKE 'C%'")
+
             elif query_type == 'MT':
                 cursor.execute(
-                    f'SELECT profitCameraIp, profitCameraPort, username, password FROM {self.table_name} where TimeZone like "M%" and ProdFullName = "AXIS M2025-LE Bullet Camera"')
+                    f"SELECT uniqueCameraId, profitCameraIp, profitCameraPort, username, password FROM {self.table_name} WHERE TimeZone LIKE 'M%'")
             elif query_type == 'PT':
                 cursor.execute(
-                    f'SELECT profitCameraIp, profitCameraPort, username, password FROM {self.table_name} where TimeZone like "P%" and ProdFullName = "AXIS M2025-LE Bullet Camera"')
+                    f"SELECT uniqueCameraId, profitCameraIp, profitCameraPort, username, password FROM {self.table_name} WHERE TimeZone LIKE 'P%'")
+            elif query_type == 'ALL':
+                cursor.execute(
+                    f"SELECT uniqueCameraId, profitCameraIp, profitCameraPort, username, password FROM {self.table_name}")
+
             else:
                 logging.error("Invalid query type.")
                 return []
@@ -65,26 +62,3 @@ class DatabaseManager:
             logging.error(f"Error fetching data from database: {e}")
             return []
 
-    @staticmethod
-    def load_cache():
-        if os.path.exists(CACHE_FILE):
-            with open(CACHE_FILE, "rb") as f:
-                cache = pickle.load(f)
-                current_time = time.time()
-                for key, value in list(cache.items()):
-                    if isinstance(value, dict) and 'timestamp' in value:
-                        if current_time - value['timestamp'] > CACHE_EXPIRY_SECONDS:
-                            del cache[key]  # Remove expired cache entry
-                    else:
-                        #logging.warning("Invalid cache format found. Skipping.")
-                        del cache[key]  # Remove invalid cache entry
-                return cache
-        else:
-            return {}
-
-    def save_cache(self, cache):
-        try:
-            with open(CACHE_FILE, "wb") as f:
-                pickle.dump(cache, f)
-        except Exception as e:
-            logging.error(f"Error saving cache: {e}")

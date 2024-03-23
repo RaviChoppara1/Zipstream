@@ -16,20 +16,13 @@ Key features :
 
 ----------------------------------------------
 
-
-Test Cameras:
-http://10.76.12.152:10002 --CT
-http://10.76.12.152:10003 --CT
-http://10.76.12.152:10006 --CT
-http://10.76.12.152:10008 --MT
-
 --------------------------------------------------
 note :
 pip install boto3
 pip install --upgrade boto3 botocore urllib3 pyopenssl
 --------------------------------------------------
 23/02/24
-Total M2025 Camera in Production : 3473
+Total M2025 Mobile site Camera in Production : 3473
                              CT : 1442
                              ET : 1242
                              PT : 509
@@ -45,28 +38,33 @@ Total M2025 Camera in Production : 3473
 
 	
 
-1)14:00 UTC :python3 main.py ravichoppara 12Ravi@#34 profit_db view_camentity3 --strength 50 --query_type ET --database_endpoint provigil-dev-db-cluster.cluster-cmo78nhwb6in.us-east-1.rds.amazonaws.com --database_port 3306
+1)13:00 UTC : python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength 30 --query_type ET --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
 
-2)15:00 UTC :python3 main.py ravichoppara 12Ravi@#34 profit_db view_camentity3 --strength 50 --query_type CT --database_endpoint provigil-dev-db-cluster.cluster-cmo78nhwb6in.us-east-1.rds.amazonaws.com --database_port 3306
 
-3)16:00 UTC :python3 main.py ravichoppara 12Ravi@#34 profit_db view_camentity3 --strength 50 --query_type MT --database_endpoint provigil-dev-db-cluster.cluster-cmo78nhwb6in.us-east-1.rds.amazonaws.com --database_port 3306
+2)14:00 UTC : python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength 30 --query_type CT --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
 
-4)17:00 UTC :python3 main.py ravichoppara 12Ravi@#34 profit_db view_camentity3 --strength 50 --query_type PT --database_endpoint provigil-dev-db-cluster.cluster-cmo78nhwb6in.us-east-1.rds.amazonaws.com --database_port 3306
+
+3)15:00 UTC : python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength 30 --query_type MT --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
+
+
+4)16:00 UTC : python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength 30 --query_type PT --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
+
+5)17:00 UTC : python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength 30 --query_type ALL --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
+
 
 	
 
-5)21:00 UTC :python3 main.py ravichoppara 12Ravi@#34 profit_db view_camentity3 --strength off --query_type ET --database_endpoint provigil-dev-db-cluster.cluster-cmo78nhwb6in.us-east-1.rds.amazonaws.com --database_port 3306
-
-6)22:00 UTC:python3 main.py ravichoppara 12Ravi@#34 profit_db view_camentity3 --strength off --query_type CT --database_endpoint provigil-dev-db-cluster.cluster-cmo78nhwb6in.us-east-1.rds.amazonaws.com --database_port 3306
-
-7)23:00 UTC:python3 main.py ravichoppara 12Ravi@#34 profit_db view_camentity3 --strength off --query_type MT --database_endpoint provigil-dev-db-cluster.cluster-cmo78nhwb6in.us-east-1.rds.amazonaws.com --database_port 3306
-
-8)23:59 UTC:python3 main.py ravichoppara 12Ravi@#34 profit_db view_camentity3 --strength off --query_type PT --database_endpoint provigil-dev-db-cluster.cluster-cmo78nhwb6in.us-east-1.rds.amazonaws.com --database_port 3306
+6)20:00 UTC : python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength off --query_type ET --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
 
 
+7)21:00 UTC: python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength off --query_type CT --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
 
 
----------------------------
-note :
-pip install boto3
-pip install --upgrade boto3 botocore urllib3 pyopenssl
+8)22:00 UTC: python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength off --query_type MT --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
+
+
+9)23:00 UTC: python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength off --query_type PT --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
+
+10)23:59 UTC: python3 main.py axiscamera 12AxisCamera34 profit_db Camera_Info --strength off --query_type ALL --database_endpoint microservice-common-db.pro-vigil.com --database_port 3306
+
+

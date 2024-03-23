@@ -4,23 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ae9a626-c86b-4a96-8090-0048fa825dec" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Sample-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sample-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/database_handler/database_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/log_folder_manager/log_folder_manager.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/signal_handler/signal_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/url_handler/url_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-    </list>
+    <list default="true" id="1ae9a626-c86b-4a96-8090-0048fa825dec" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/main.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="2cY7BNvAmUznuNC99wzbuzDwfCo" />
   <component name="ProjectViewState">
